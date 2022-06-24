@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learnitnow/bottom_navigation.dart';
+import 'package:learnitnow/screen/splashscreen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,13 +8,12 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavigation(),
+      home: SplashScreen(),
     );
   }
 }
-
-
