@@ -16,6 +16,7 @@ class LoginScreen extends StatelessWidget {
           children: <Widget>[
             Column(
               children: [
+                const SizedBox(height: 75),
                 Image.asset(
                   'assets/images/login.png',
                   width: 250,
