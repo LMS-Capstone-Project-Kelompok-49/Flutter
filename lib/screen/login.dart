@@ -2,12 +2,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:learnitnow/screen/regis.dart';
+import 'package:learnitnow/services/auth.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = AuthController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -16,6 +18,7 @@ class LoginScreen extends StatelessWidget {
           children: <Widget>[
             Column(
               children: [
+                const SizedBox(height: 75),
                 Image.asset(
                   'assets/images/login.png',
                   width: 250,
@@ -32,6 +35,7 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         TextField(
+                          controller: authController.usernameController,
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.next,
                           cursorColor: const Color(0xFF6F35A5),
@@ -48,6 +52,7 @@ class LoginScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           child: TextFormField(
+                            controller: authController.passwordController,
                             textInputAction: TextInputAction.done,
                             obscureText: true,
                             cursorColor: const Color(0xFF6F35A5),

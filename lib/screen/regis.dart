@@ -16,6 +16,7 @@ class SignUpScreen extends StatelessWidget {
           children: <Widget>[
             Column(
               children: [
+                const SizedBox(height: 75),
                 Image.asset('assets/images/regis.png',
                 width: 250,),
                 const SizedBox(height: 50),
