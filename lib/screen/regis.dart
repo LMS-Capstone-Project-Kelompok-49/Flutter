@@ -82,7 +82,7 @@ class SignUpScreen extends StatelessWidget {
                           height: 50,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              primary: const Color(0XFF00AFB9),
+                              primary: const Color(0XFF00899F),
                             ),
                             onPressed: () {},
                             child: Text(
@@ -111,7 +111,7 @@ class SignUpScreen extends StatelessWidget {
                                     );
                                   },
                                 style: const TextStyle(
-                                  color: Color(0XFF00AFB9),
+                                  color: Color(0XFF00899F),
                                 ),
                               ),
                             ],

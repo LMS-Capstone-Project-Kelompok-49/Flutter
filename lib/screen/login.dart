@@ -10,6 +10,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthController authController = AuthController();
+    var usernameController = TextEditingController();
+    var passwordController = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -34,11 +36,15 @@ class LoginScreen extends StatelessWidget {
                   child: Form(
                     child: Column(
                       children: [
-                        TextField(
-                          controller: authController.usernameController,
+                        TextFormField(
+                          controller: usernameController,
+                          onSaved: (String? val){
+                            usernameController.text = val!;
+                          },
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.next,
-                          cursorColor: const Color(0xFF6F35A5),
+                          cursorColor: Colors.white,
+                          autofocus: false,
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
                             labelText: "Email",
@@ -52,7 +58,10 @@ class LoginScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           child: TextFormField(
-                            controller: authController.passwordController,
+                            controller: passwordController,
+                            onSaved: (String? val){
+                              passwordController.text = val!;
+                            },
                             textInputAction: TextInputAction.done,
                             obscureText: true,
                             cursorColor: const Color(0xFF6F35A5),
@@ -73,9 +82,11 @@ class LoginScreen extends StatelessWidget {
                           height: 50,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              primary: const Color(0XFF00AFB9),
+                              primary: const Color(0XFF00899F),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              authController.loginUser();
+                            },
                             child: Text(
                               "Sign In".toUpperCase(),
                               style: GoogleFonts.poppins(),
@@ -102,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                                     );
                                   },
                                 style: const TextStyle(
-                                  color: Color(0XFF00AFB9),
+                                  color: Color(0XFF00899F),
                                 ),
                               ),
                             ],
