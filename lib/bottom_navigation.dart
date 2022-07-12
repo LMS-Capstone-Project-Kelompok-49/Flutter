@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:learnitnow/screen/assignment.dart';
-import 'package:learnitnow/screen/chat.dart';
+
 import 'package:learnitnow/screen/home.dart';
 import 'package:learnitnow/screen/profile.dart';
 
@@ -15,19 +15,13 @@ class BottomNavigation extends StatefulWidget {
 class _BottomNavigationState extends State<BottomNavigation> {
   int index = 0;
 
-  final screens = [
-    const Home(),
-    const Assignment(),
-    const Chat(),
-    const Profile()
-  ];
+  final screens = [const Home(), const Assignment(), const Profile()];
 
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[
       const Icon(Icons.home, size: 30),
       const Icon(Icons.assessment, size: 30),
-      const Icon(Icons.chat, size: 30),
       const Icon(Icons.person, size: 30),
     ];
     return Scaffold(
