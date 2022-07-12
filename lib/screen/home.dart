@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../widget/BrowseCategory.dart';
-import 'Drawer/Navigation_Drawer.dart';
+import '../widget/Navigation_Drawer.dart';
 import '../widget/OurLearning/detail.dart';
 
 import '../widget/heading_text.dart';
@@ -106,12 +105,6 @@ class _HomePageState extends State<Home> {
           const SizedBox(height: 15),
           const Padding(padding: EdgeInsets.all(6)),
           const Ourlearning(),
-          const SizedBox(
-            height: 15,
-          ),
-          const SizedBox(height: 15),
-          const Padding(padding: EdgeInsets.all(6)),
-          const BrowseCategory(),
           const SizedBox(
             height: 15,
           ),
