@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileScreenState extends State<ProfileScreen> {
   bool isPasswordTextField = true;
   @override
   Widget build(BuildContext context) {
@@ -87,11 +87,26 @@ class _ProfileState extends State<Profile> {
                   child: Text("Update your profile and personal details"),
                 ),
                 SizedBox(height: 30),
-                builtTextField("First Name", "Lutfhi", false),
-                builtTextField("Last Name", "Arzaki", false),
-                builtTextField("Email Address", "Lutfhi@gmail.com", false),
-                builtTextField("Password", "***************", true),
-                builtTextField("Confirm Password", "***************", true),
+                inputFile(
+                  label: "First Name",
+                  placeholder: "Lutfhi",
+                ),
+                inputFile(
+                  label: "Last Name",
+                  placeholder: "Arzaki",
+                ),
+                inputFile(
+                  label: "Email Address",
+                  placeholder: "Lutfhi@gmail.com",
+                ),
+                inputFile(
+                  label: "Password",
+                  placeholder: "***************",
+                ),
+                inputFile(
+                  label: "Confirm Password",
+                  placeholder: "***************",
+                ),
                 SizedBox(height: 15),
                 Card(
                   color: Color(0xFF00AFB9),
@@ -116,23 +131,51 @@ class _ProfileState extends State<Profile> {
         ));
   }
 
-  Widget builtTextField(
-      String labelText, String placeholder, bool isPasswordTextField) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 10),
-      child: TextField(
-        obscureText: isPasswordTextField ? isPasswordTextField : false,
-        decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(bottom: 3),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(4.0))),
-            labelText: labelText,
-            hintText: placeholder,
-            prefixIcon: Padding(padding: EdgeInsets.all(1)),
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintStyle: TextStyle(
-                fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey)),
-      ),
-    );
+  Widget inputFile({label, placeholder, obscureText = false}) {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            label,
+            style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+                color: Colors.black87),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          TextField(
+            obscureText: obscureText,
+            decoration: InputDecoration(
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                hintText: placeholder,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey))),
+          ),
+
+          // Widget builtTextField(
+          //     String labelText, String placeholder, bool isPasswordTextField) {
+          //   return Padding(
+          //     padding: EdgeInsets.only(bottom: 10),
+          //     child: TextField(
+          //       obscureText: isPasswordTextField ? isPasswordTextField : false,
+          //       decoration: InputDecoration(
+          //           contentPadding: EdgeInsets.only(bottom: 3),
+          //           border: OutlineInputBorder(
+          //               borderRadius: BorderRadius.all(Radius.circular(4.0))),
+          //           labelText: labelText,
+          //           hintText: placeholder,
+          //           prefixIcon: Padding(padding: EdgeInsets.all(1)),
+          //           floatingLabelBehavior: FloatingLabelBehavior.always,
+          //           hintStyle: TextStyle(
+          //               fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey)),
+          //     ),
+        ]);
   }
 }

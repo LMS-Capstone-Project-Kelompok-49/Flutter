@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:learnitnow/screen/Drawer/Request%20Course.dart';
+import 'package:learnitnow/screen/Drawer/user_screen.dart';
 
-import '../screen/Drawer/Favorite.dart';
 import '../screen/Drawer/Log_Out.dart';
-import '../screen/Drawer/People.dart';
-import '../screen/Drawer/Updates.dart';
-import '../screen/Drawer/UserPage.dart';
-import '../screen/Drawer/Wrokflow.dart';
+import '../screen/Drawer/Profile.dart';
+import '../screen/Drawer/Setting.dart';
+import '../screen/Drawer/contact_us.dart';
+import '../screen/Drawer/Privacy.dart';
 
 class NavigationDrawer extends StatelessWidget {
   NavigationDrawer({Key? key}) : super(key: key);
@@ -31,10 +32,10 @@ class NavigationDrawer extends StatelessWidget {
                 email: email,
                 onClicked: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>
-                        UserPage(name: name, urlImage: urlImage)))),
+                        UserScreen(name: name, urlImage: urlImage)))),
             SizedBox(height: 30),
             buildMenuItem(
-              text: "People",
+              text: "Profile",
               icon: Icons.people,
               onClicked: () => selectedItem(context, 0),
             ),
@@ -52,7 +53,7 @@ class NavigationDrawer extends StatelessWidget {
             ),
             SizedBox(height: 5),
             buildMenuItem(
-              text: "Send Feedback",
+              text: "Request Course",
               icon: Icons.chat,
               onClicked: () => selectedItem(context, 3),
             ),
@@ -139,19 +140,23 @@ class NavigationDrawer extends StatelessWidget {
     switch (index) {
       case 0:
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => PeopleScreen()));
+            .push(MaterialPageRoute(builder: (context) => ProfileScreen()));
         break;
       case 1:
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => PrivacyScreen()));
         break;
       case 2:
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => WrokflowScreen()));
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const SettingScreen()));
         break;
       case 3:
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => RequestCourseScreen()));
+        break;
+      case 4:
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => UpdatesScreen()));
+            .push(MaterialPageRoute(builder: (context) => ContactScreen()));
         break;
     }
   }
