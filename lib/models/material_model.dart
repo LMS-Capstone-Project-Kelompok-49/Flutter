@@ -1,4 +1,4 @@
-class Material {
+class MaterialModel {
   int? id;
   int? courseid;
   String? materialName;
@@ -7,7 +7,7 @@ class Material {
   DateTime? created;
   DateTime? updated;
 
-  Material({
+  MaterialModel({
     this.id,
     this.courseid,
     this.materialName,
@@ -17,7 +17,7 @@ class Material {
     this.updated,
   });
 
-  Material.fromJson(Map<String, dynamic> json){
+  MaterialModel.fromJson(Map<String, dynamic> json){
     id = json['id'] as int;
     courseid = json['course id'] as int;
     materialName = json['material name'] as String;
