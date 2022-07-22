@@ -2,12 +2,18 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:learnitnow/screen/login.dart';
+import 'package:learnitnow/viewmodels/auth_viewmodel.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var nameController = TextEditingController();
+    var usernameController = TextEditingController();
+    var passwordController = TextEditingController();
+    ValueNotifier<String?> _token = ValueNotifier<String?>(null);
+    final AuthViewModel authViewModel = AuthViewModel();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -28,6 +34,7 @@ class SignUpScreen extends StatelessWidget {
                 Expanded(
                   flex: 8,
                   child: Form(
+                    key: GlobalKey(),
                     child: Column(
                       children: [
                         TextField(
@@ -36,7 +43,7 @@ class SignUpScreen extends StatelessWidget {
                           cursorColor: const Color(0xFF6F35A5),
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
-                            labelText: "Email",
+                            labelText: "Name",
                             labelStyle: GoogleFonts.poppins(),
                             prefixIcon: const Padding(
                               padding: EdgeInsets.all(10),
@@ -52,7 +59,7 @@ class SignUpScreen extends StatelessWidget {
                           cursorColor: const Color(0xFF6F35A5),
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
-                            labelText: "Password",
+                            labelText: "Email",
                             labelStyle: GoogleFonts.poppins(),
                             prefixIcon: const Padding(
                               padding: EdgeInsets.all(10),
@@ -68,7 +75,7 @@ class SignUpScreen extends StatelessWidget {
                           cursorColor: const Color(0xFF6F35A5),
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
-                            labelText: "Retype Password",
+                            labelText: "Password",
                             labelStyle: GoogleFonts.poppins(),
                             prefixIcon: const Padding(
                               padding: EdgeInsets.all(10),
